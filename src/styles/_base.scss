@@ -1,0 +1,229 @@
+@use "sass:map";
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.wrapper {
+  height: 100vh;
+  margin: 0 auto;
+  padding: 10%;
+  background-image: url(../images/background.jpg);
+  background-size: cover;
+
+  @media screen and (max-width: 1024px) {
+    padding: 8%;
+  }
+}
+
+.container {
+  display: grid;
+  gap: 50px;
+  padding: 5%;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgba(80, 199, 199, 0.8);
+  border: 1px solid rgb(80, 199, 199);
+
+  @media screen and (max-width: 1024px) {
+    gap: 35px;
+  }
+}
+
+.header {
+  display: grid;
+  gap: 20px;
+
+  @media screen and (max-width: 768px) {
+    gap: 15px;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  &__show-all,
+  &__delete-all {
+    min-width: 150px;
+
+    @media screen and (max-width: 1024px) {
+      min-width: 100px;
+    }
+
+    @media screen and (max-width: 768px) {
+      max-width: 150px;
+      width: 100%;
+    }
+  }
+
+  &__delete-all {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__delete-all--mobile {
+    display: none;
+
+    @media screen and (max-width: 768px) {
+      display: block;
+      max-width: 150px;
+      width: 100%;
+      margin-top: 15px;
+    }
+  }
+
+  &__add-task-form {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__add-task-input {
+    margin-inline: 50px 15px;
+
+    @media screen and (max-width: 1024px) {
+      margin-inline: 15px 5px;
+    }
+
+    @media screen and (max-width: 768px) {
+      margin-inline: 0 10px;
+    }
+  }
+
+  &__add-task-button {
+    min-width: 120px;
+
+    @media screen and (max-width: 1024px) {
+      min-width: 70px;
+    }
+  }
+
+  &__buttons-row {
+    @media screen and (max-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__show-completed {
+    min-width: 180px;
+    margin-inline: 40px 25px;
+
+    @media screen and (max-width: 1024px) {
+      min-width: 150px;
+      margin-inline: 15px 5px;
+    }
+
+    @media screen and (max-width: 768px) {
+      margin-inline: 5px 0;
+    }
+  }
+
+  &__search-input {
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+  }
+}
+
+.button {
+  padding-block: 18px;
+  font-size: 18px;
+  color: rgba(255, 255, 255);
+  background-color: rgba(80, 199, 199, 0.8);
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  @media screen and (max-width: 1024px) {
+    font-size: 16px;
+    padding-block: 10px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+    padding-block: 5px;
+  }
+}
+
+.input {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid rgb(80, 199, 199);
+  outline: none;
+
+  @media screen and (max-width: 1024px) {
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+.tasks {
+  &__task-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: rgba(205, 205, 205, 0.5);
+
+    @media screen and (max-width: 1024px) {
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__task {
+    display: flex;
+    align-items: center;
+    font-size: 21px;
+
+    @media screen and (max-width: 1024px) {
+      font-size: 16px;
+    }
+
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+
+  &__button {
+    margin-inline: 10px;
+    min-width: 50px;
+    height: 40px;
+    color: rgba(255, 255, 255);
+    background-color: rgba(80, 199, 199, 0.8);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+
+    @media screen and (max-width: 1024px) {
+      margin-inline: 5px;
+      min-width: 40px;
+      height: 30px;
+    }
+  }
+
+  &__checkbox {
+    margin-inline: 65px 105px;
+
+    @media screen and (max-width: 1024px) {
+      margin-inline: 40px 65px;
+    }
+
+    @media screen and (max-width: 768px) {
+      margin-inline: 15px;
+    }
+  }
+}

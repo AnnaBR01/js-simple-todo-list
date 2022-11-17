@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/main.scss" class="stylesheet" />
+    <title>Todo list</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="container">
+        <header class="header">
+          <div class="header__row">
+            <button class="header__delete-all button">Delete all</button>
+            <form action="#" class="header__add-task-form">
+              <input
+                type="text"
+                name="task"
+                class="header__add-task-input input"
+                placeholder="enter task..."
+              />
+
+              <button type="submit" class="header__add-task-button button">
+                Add
+              </button>
+            </form>
+          </div>
+          <div class="header__row">
+            <div class="header__buttons-row">
+              <button class="header__show-all button">Show all</button>
+              <button class="header__show-completed button">
+                Show completed
+              </button>
+            </div>
+            <input
+              type="text"
+              name="search"
+              class="header__search-input input"
+              placeholder="search..."
+            />
+            <button class="header__delete-all--mobile button">
+              Delete all
+            </button>
+          </div>
+        </header>
+
+        <main class="tasks">
+          <ul class="tasks__list">
+            <li class="tasks__task-row">
+              <label class="tasks__task">
+                <input type="checkbox" class="tasks__checkbox" />Lorem ipsum
+                dolor sit amet.</label
+              >
+              <button class="tasks__button">✖</button>
+            </li>
+
+            <li class="tasks__task-row">
+              <label class="tasks__task">
+                <input type="checkbox" class="tasks__checkbox" />Lorem ipsum
+                dolor sit amet consectetur adipisicing elit. Corrupti minus
+                dolorem mollitia iusto enim voluptate.</label
+              >
+              <button class="tasks__button">✖</button>
+            </li>
+          </ul>
+        </main>
+      </section>
+    </div>
+  </body>
+</html>
