@@ -21,8 +21,8 @@ body {
   gap: 50px;
   padding: 5%;
   background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 0 20px rgba(80, 199, 199, 0.8);
-  border: 1px solid rgb(80, 199, 199);
+  box-shadow: 0 0 20px $primary-light-color;
+  border: 1px solid $primary-color;
 
   @media screen and (max-width: 1024px) {
     gap: 35px;
@@ -136,7 +136,7 @@ body {
   padding-block: 18px;
   font-size: 18px;
   color: rgba(255, 255, 255);
-  background-color: rgba(80, 199, 199, 0.8);
+  background-color: $primary-light-color;
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -156,7 +156,7 @@ body {
   flex-grow: 1;
   padding: 10px;
   font-size: 18px;
-  border: 1px solid rgb(80, 199, 199);
+  border: 1px solid $primary-color;
   outline: none;
 
   @media screen and (max-width: 1024px) {
@@ -203,7 +203,7 @@ body {
     min-width: 50px;
     height: 40px;
     color: rgba(255, 255, 255);
-    background-color: rgba(80, 199, 199, 0.8);
+    background-color: $primary-light-color;
     border-radius: 10px;
     border: none;
     cursor: pointer;
