@@ -18,7 +18,9 @@
       <section class="container">
         <header class="header">
           <div class="header__row">
-            <button class="header__delete-all button">Delete all</button>
+            <button class="header__delete-all button" data-action="delete-all">
+              Delete all
+            </button>
             <form action="#" class="header__add-task-form">
               <input
                 type="text"
@@ -32,6 +34,11 @@
               </button>
             </form>
           </div>
+
+          <div class="header__row header__input-empty">
+            Task is empty. Please add the title of the task
+          </div>
+
           <div class="header__row">
             <div class="header__buttons-row">
               <button class="header__show-all button">Show all</button>
@@ -45,33 +52,20 @@
               class="header__search-input input"
               placeholder="search..."
             />
-            <button class="header__delete-all--mobile button">
+            <button
+              class="header__delete-all--mobile button"
+              data-action="delete-all"
+            >
               Delete all
             </button>
           </div>
         </header>
 
         <main class="tasks">
-          <ul class="tasks__list">
-            <li class="tasks__task-row">
-              <label class="tasks__task">
-                <input type="checkbox" class="tasks__checkbox" />Lorem ipsum
-                dolor sit amet.</label
-              >
-              <button class="tasks__button">✖</button>
-            </li>
-
-            <li class="tasks__task-row">
-              <label class="tasks__task">
-                <input type="checkbox" class="tasks__checkbox" />Lorem ipsum
-                dolor sit amet consectetur adipisicing elit. Corrupti minus
-                dolorem mollitia iusto enim voluptate.</label
-              >
-              <button class="tasks__button">✖</button>
-            </li>
-          </ul>
+          <ul class="tasks__list"></ul>
         </main>
       </section>
     </div>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>

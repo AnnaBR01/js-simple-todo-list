@@ -18,23 +18,23 @@ body {
 
 .container {
   display: grid;
-  gap: 50px;
+  gap: 30px;
   padding: 5%;
   background-color: rgba(255, 255, 255, 0.8);
   box-shadow: 0 0 20px $primary-light-color;
   border: 1px solid $primary-color;
 
   @media screen and (max-width: 1024px) {
-    gap: 35px;
+    gap: 15px;
   }
 }
 
 .header {
   display: grid;
-  gap: 20px;
+  gap: 50px;
 
   @media screen and (max-width: 768px) {
-    gap: 15px;
+    gap: 25px;
   }
 
   &__row {
@@ -130,6 +130,21 @@ body {
       width: 100%;
     }
   }
+
+  &__input-empty {
+    display: none;
+    text-align: center;
+    font-size: 18px;
+    color: $warning;
+
+    @media screen and (max-width: 1024px) {
+      font-size: 16px;
+    }
+
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
 }
 
 .button {
@@ -197,6 +212,9 @@ body {
       font-size: 14px;
     }
   }
+  &__task--done {
+    text-decoration: line-through;
+  }
 
   &__button {
     margin-inline: 10px;
@@ -216,14 +234,61 @@ body {
   }
 
   &__checkbox {
-    margin-inline: 65px 105px;
+    display: none;
+  }
+}
 
-    @media screen and (max-width: 1024px) {
-      margin-inline: 40px 65px;
-    }
+.empty-list-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 20px;
+  font-size: 32px;
+  color: $primary-color;
 
-    @media screen and (max-width: 768px) {
-      margin-inline: 15px;
-    }
+  @media screen and (max-width: 1024px) {
+    font-size: 28px;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 24px;
+  }
+}
+
+label:before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-inline: 60px 100px;
+  background-color: #aaa;
+  box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.3),
+    0px 1px 0px 0px rgba(255, 255, 255, 0.8);
+
+  @media screen and (max-width: 1024px) {
+    width: 16px;
+    height: 16px;
+    margin-inline: 40px 55px;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 14px;
+    height: 14px;
+    margin-inline: 65.5px;
+  }
+}
+
+input[type="checkbox"]:checked + label:before {
+  content: "✔";
+  color: green;
+  text-align: center;
+  line-height: 20px;
+
+  @media screen and (max-width: 1024px) {
+    line-height: 18px;
+  }
+
+  @media screen and (max-width: 768px) {
+    line-height: 14px;
   }
 }
