@@ -29,28 +29,28 @@ searchInput.addEventListener("input", search);
 
 function addTask(event) {
   event.preventDefault();
-  inputEmpty.style.display = "none";
 
-  if (addTaskInput.value === "") {
-    inputEmpty.style.display = "block";
-    return;
+  const inputValue = addTaskInput.value;
+
+  inputEmpty.style.display = !inputValue ? "block" : "none";
+
+  if (inputValue) {
+    const textTask = inputValue;
+    const newTask = {
+      id: Date.now(),
+      text: textTask,
+      checked: false,
+    };
+
+    tasks.push(newTask);
+
+    renderTask(newTask);
+
+    addTaskInput.value = "";
+    addTaskInput.focus();
+    checkEmptyList(tasks, "List is empty");
+    saveToLocalStorage();
   }
-
-  const textTask = addTaskInput.value;
-  const newTask = {
-    id: Date.now(),
-    text: textTask,
-    checked: false,
-  };
-
-  tasks.push(newTask);
-
-  renderTask(newTask);
-
-  addTaskInput.value = "";
-  addTaskInput.focus();
-  checkEmptyList(tasks, "List is empty");
-  saveToLocalStorage();
 }
 
 function deleteTask(event) {
@@ -58,9 +58,7 @@ function deleteTask(event) {
 
   const parentNode = event.target.closest(".tasks__task-row");
 
-  tasks = tasks.filter((task) => {
-    return task.id !== +parentNode.id;
-  });
+  tasks = tasks.filter((task) => task.id !== +parentNode.id);
 
   parentNode.remove();
   checkEmptyList(tasks, "List is empty");
@@ -94,7 +92,7 @@ function deleteTasks(event) {
 function showCompleted() {
   const completedTasks = tasks.filter((task) => task.checked === true);
   tasksList.replaceChildren();
-  if (completedTasks.length !== 0) {
+  if (!!completedTasks.length) {
     completedTasks.forEach((task) => renderTask(task));
   } else {
     checkEmptyList(completedTasks, "No completed tasks");
@@ -115,7 +113,7 @@ function search() {
 
   tasksList.replaceChildren();
 
-  if (searchTasks.length !== 0) {
+  if (!!searchTasks.length) {
     searchTasks.forEach((task) => renderTask(task));
   } else {
     checkEmptyList(searchTasks, "No such task was found");
@@ -123,7 +121,7 @@ function search() {
 }
 
 function checkEmptyList(array, message) {
-  if (array.length === 0) {
+  if (!array.length) {
     const emptyListHTML = `<li class="empty-list-element">${message}</p></li>`;
     tasksList.insertAdjacentHTML("beforeend", emptyListHTML);
   } else {
@@ -139,11 +137,11 @@ function saveToLocalStorage() {
 function renderTask(task) {
   const taskHTML = `<li class="tasks__task-row" id="${task.id}">
  
-  <input type="checkbox" id="label${task.id}" ${
-    task.checked ? "data-action=done checked" : "data-action=done"
+  <input type="checkbox" id="label${task.id}+1" data-action=done ${
+    task.checked ? `checked` : ``
   } class="tasks__checkbox"/> <label class="tasks__task" for="label${
     task.id
-  }">${task.text}</label
+  }+1">${task.text}</label
 >
 <button class="tasks__button" data-action="delete">✖</button>
 </li>`;
